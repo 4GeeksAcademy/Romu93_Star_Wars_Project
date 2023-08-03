@@ -3,8 +3,15 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
+import { CharacterDetails } from "./views/CharacterDetails.jsx";
+import { PlanetDetails } from "./views/PlanetDetails.jsx";
+import { FilmDetails } from "./views/FilmDetails.jsx";
+import { SpecieDetails } from "./views/SpecieDetails.jsx";
+//import { Single } from "./views/single";
+import { GetCharacters } from "./views/GetCharacters.jsx";
+import { GetPlanets } from "./views/GetPlanets.jsx";
+import { GetFilms } from "./views/GetFilms.jsx";
+import { GetSpecies } from "./views/GetSpecies.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -23,8 +30,18 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
+
+						<Route path="/characters" element={<GetCharacters />} />
+						<Route path="/planets" element={<GetPlanets />} />
+						<Route path="/films" element={<GetFilms />} />
+						<Route path="/species" element={<GetSpecies />} />
+
+						<Route path="/characters/:theid" element={<CharacterDetails />} />
+						<Route path="/planets/:theid" element={<PlanetDetails />} />
+						<Route path="/films/:theid" element={<FilmDetails />} />
+						<Route path="/species/:theid" element={<SpecieDetails />} />
+
+						{/*<Route path="/single/:theid" element={<Single />} />*/}
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />
